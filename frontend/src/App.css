@@ -2,3 +2,36 @@
   margin: 4rem 5rem;
 
 }
+
+.main-navigation__items a,
+.main-navigation__items button,
+.events-btn {
+    text-decoration: none;
+    color: #000;
+    padding: 0.25rem 0.5rem;
+    border: none;
+    font: inherit;
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+}
+.events-btn {
+  background: #01d1d1;
+  border-radius: 2px;
+}
+.main-navigation__items a:hover,
+.main-navigation__items a.active,
+.main-navigation__items button:hover,
+.main-navigation__items button.active,
+.events-btn:hover,
+.events-btn button.active  {
+    color: black;
+    background: #fff;
+    border-radius: 5px solid black;
+    outline: none;
+    border-radius: 2px;
+}
+.events-btn:hover {
+  background: #039c9c;
+  color: #fff;
+}

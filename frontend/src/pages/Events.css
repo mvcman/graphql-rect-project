@@ -1,0 +1,49 @@
+.events-control {
+    text-align: center;
+    border: 1px solid #01d1d1;
+    padding: 3rem;
+    margin: 2rem auto;
+    max-width: 60%;
+}
+
+.event-list {
+    width: 40rem;
+    max-width: 90%;
+    margin: 2rem auto;
+    list-style: none;
+    padding: 0;
+}
+
+.event-list-item {
+    margin: 1rem 0;
+    padding: 1rem;
+    border: 1px solid #01d1d1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.event-list-item h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #01d1d1;
+}
+.event-list-item h2 {
+    margin: 0;
+    font-size: 1rem;
+    color: #7c7c7c;
+}
+.event-list-item p {
+    margin: 0;
+    color:#7c7c7c;
+}
+.event-list-item button {
+    background: #01d1d1;
+    text-decoration: none;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0.30rem;
+    border-radius: 2px;
+}

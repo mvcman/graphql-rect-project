@@ -11,25 +11,33 @@ import AuthContext from "./context/auth-context"
 
 class App extends React.Component {
 
+  constructor(props){
+    super(props);
+    this.login = this.login.bind(this);
+    this.logout = this.logout.bind(this);
+  }
   state = {
     token: null,
     userId: null,
     tokenExpiration: 1
   }
 
-  login = (token, userId, tokenExpiration) => {
-    this.setState({
+  async login(token, userId, tokenExpiration){
+    console.log("prev state", this.state.token);
+    await this.setState({
       token: token,
       userId: userId,
       tokenExpiration: tokenExpiration
     });
+    console.log("My data in login", token, this.state.token);
   }
 
-  logout = () => {
-    this.setState({
+  async logout(){
+    await this.setState({
       token: null,
       userId: null
     });
+    console.log(this.state.token);
   }
 
   render() {
@@ -39,12 +47,13 @@ class App extends React.Component {
           <MainNavigation />
             <main className="main-content">
               <Switch>
-                {!this.state.token && <Redirect from="/" to="/auth" exact/>}
+                {!this.state.token && <Redirect from="/bookings" to="/auth" exact/>}
                 { this.state.token && <Redirect from="/" to="/events" exact/>}
                 { this.state.token && <Redirect from="/auth" to="/events" exact/>}
                 {!this.state.token && <Route path="/auth" component={AuthPage} />}
                 <Route path="/events" component={Events} />
                 {this.state.token && <Route path="/bookings" component={Booking} />}
+                {!this.state.token && <Redirect to="/auth" exact/>}
               </Switch>
             </main>
         </AuthContext.Provider>

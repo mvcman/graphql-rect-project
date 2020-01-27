@@ -20,6 +20,11 @@ app.use((req, res, next) => {
     next();
 });
 
+app.get('/', (req, res, next) => {
+    res.send('<h1>Welcome to react graphql</h1>');
+    next();
+});
+
 app.use(isAuth);
 
 app.use('/graphql',  graphqlHttp({

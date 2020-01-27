@@ -6,14 +6,14 @@ class AuthPage extends Component {
     state = {
         isLogin: true
     }
-
-    static contextType = AuthContext;
-
     constructor(props){
         super(props);
         this.email = React.createRef();
         this.password = React.createRef();
     }
+
+    static contextType = AuthContext
+
     switchModeHandler = () => {
         this.setState(prevState => {
             return { isLogin: !prevState.isLogin};
@@ -70,7 +70,8 @@ class AuthPage extends Component {
                     res.data.login.tokenExpiration
                 );
             }
-            console.log(res);
+            console.log(res.data.login.token, res.data.login.userId);
+            console.log(this.context);
             alert("Login successful!");
         })
         .catch(err => {
@@ -84,11 +85,11 @@ class AuthPage extends Component {
         return (
             <form className="auth-form" onSubmit={this.submitHandler}>
                 <div className="form-control">
-                    <label for="email">Email</label>
+                    <label htmlFor="email">Email</label>
                     <input type="email" id="email" ref={this.email}/>
                 </div>
                 <div className="form-control">
-                    <label for="password">Password</label>
+                    <label htmlFor="password">Password</label>
                     <input type="password" id="password" ref={this.password}/>
                 </div>
                 <div className="form-actions">
