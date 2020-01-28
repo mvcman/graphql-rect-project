@@ -14,6 +14,8 @@ class Events extends Component {
         selectedEvent: null,
     }
 
+    isActive = true;
+
     static contextType = AuthContext;
 
     constructor(props) {
@@ -57,8 +59,10 @@ class Events extends Component {
             }
         })
         .then(res => {
-            if(res.status !== 200 && res.status !== 201){
-                throw new Error('Failed');
+            if (this.fetchEvents){
+                if(res.status !== 200 && res.status !== 201){
+                    throw new Error('Failed');
+                }
             }
             return res.json();
         })
@@ -176,8 +180,10 @@ class Events extends Component {
             }
         })
         .then(res => {
-            if(res.status !== 200 && res.status !== 201){
-                throw new Error('Failed');
+            if (this.isActive) {
+                if(res.status !== 200 && res.status !== 201){
+                    throw new Error('Failed');
+                }
             }
             return res.json();
         })
@@ -202,6 +208,10 @@ class Events extends Component {
         .catch(err => {
             console.log(err);
         });
+    }
+
+    componentWillUnmount(){
+        this.isActive = false;
     }
     render() {
         console.log(this.context);

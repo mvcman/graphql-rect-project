@@ -18,7 +18,7 @@ const spinner = () =>
             <div></div>
             <div></div>
         </div> */}
-        <div class="lds-dual-ring"></div>
+        <div className="lds-dual-ring"></div>
     </div>);
 
 export default spinner;
